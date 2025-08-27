@@ -88,9 +88,39 @@ namespace Session_02
             
         }
 
-            #endregion
+        public static void PushOntoStack(Stack stack, int[] numbers)
+        {
+            foreach (int num in numbers)
+            {
+                stack.Push(num);
+            }
+        }
 
-            static void Main(string[] args)
+        public static void FindTarget(Stack stack, int target)
+        {
+            int count = 0;
+            bool found = false;
+
+            foreach (int item in stack)
+            {
+                count++;
+                if (item == target)
+                {
+                    Console.WriteLine($"Target was found successfully and the count = {count- 1}");
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("Target was not found");
+            }
+        }
+
+        #endregion
+
+        static void Main(string[] args)
         {
             #region Q1)
             //Given an array consists of numbers with size N and number of queries,
@@ -353,16 +383,42 @@ namespace Session_02
             #endregion
 
             #region Q7)
-            Queue01 queue = new Queue01();
+            //Queue01 queue = new Queue01();
 
-            queue.Enqueue(1);
-            queue.Enqueue("Apple");
-            queue.Enqueue(5.28);
+            //queue.Enqueue(1);
+            //queue.Enqueue("Apple");
+            //queue.Enqueue(5.28);
 
-            queue.ShowQueue();
+            //queue.ShowQueue();
 
-            Console.WriteLine($"\n{queue.Dequeue()}");
-            queue.ShowQueue();
+            //Console.WriteLine($"\n{queue.Dequeue()}");
+            //queue.ShowQueue();
+
+            #endregion
+
+            #region Q8)
+            //Stack stack = new Stack();
+            //int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+            //PushOntoStack(stack, numbers);
+
+            //Console.WriteLine("Enter the target to search for in the stack:");
+            //int Target;
+            //do
+            //{
+
+            //    if(int.TryParse(Console.ReadLine(),out Target))
+            //    {
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Invalid imput");
+            //    }
+
+            //}while(true);
+            //FindTarget(stack, Target);
+
 
             #endregion
 
