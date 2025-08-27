@@ -489,62 +489,60 @@ namespace Session_02
             //Output : 
             //[4,4]
 
-            //int Size01, Size02;
+            //int size1, size2;
+            //int[] arr01, arr02;
+
             //while (true)
             //{
-            //    Console.WriteLine("Enter size of the two array: ");
-            //    string[] line = Console.ReadLine().Split(",");
+            //    Console.WriteLine("Enter sizes of the two arrays:");
+            //    string[] sizes = Console.ReadLine().Split(',');
 
-            //    if (line.Length != 2 ||!int.TryParse(line[0], out Size01) || Size01 <= 0 ||!int.TryParse(line[1], out Size02) || Size02 <= 0)
+            //    if (sizes.Length != 2 || !int.TryParse(sizes[0], out size1) || size1 <= 0 ||
+            //        !int.TryParse(sizes[1], out size2) || size2 <= 0)
             //    {
-            //        Console.WriteLine("Invalid input.");
+            //        Console.WriteLine("Invalid input");
             //        continue;
             //    }
             //    break;
             //}
-            //int[] arr01 = new int[Size01];
-            //int[] arr02 = new int[Size02];
 
-            //Console.WriteLine("\nEnter first array:");
-            //for (int i = 0; i < Size01; i++)
+            //while (true)
             //{
-            //    do
-            //    {
-            //        Console.Write($"Element {i + 1}: ");
-            //        if (int.TryParse(Console.ReadLine(), out arr01[i]))
-            //        {
-            //            break;
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine("Invalid Input");
-            //        }
-            //    } while (true);
-            //}
+            //    Console.WriteLine($"Enter the arrays :");
+            //    string input = Console.ReadLine();
 
-            //Console.WriteLine("\nEnter secound array:");
-            //for (int i = 0; i < Size02; i++)
-            //{
-            //    do
-            //    {
-            //        Console.Write($"Element {i + 1}: ");
-            //        if (int.TryParse(Console.ReadLine(), out arr02[i]))
-            //        {
-            //            break;
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine("Invalid Input");
-            //        }
-            //    } while (true);
-            //}
+            //    string[] parts = input.Split(new string[] { "],", "] ," }, StringSplitOptions.RemoveEmptyEntries);
 
-            //int[] result = new int[Math.Min(Size01, Size02)];
+            //    if (parts.Length != 2)
+            //    {
+            //        Console.WriteLine("Invalid input");
+            //        continue;
+            //    }
+
+            //    try
+            //    {
+            //        arr01 = parts[0].Replace("[", "").Replace("]", "").Split(',').Select(s => int.Parse(s.Trim())).ToArray();
+            //        arr02 = parts[1].Replace("[", "").Replace("]", "").Split(',').Select(s => int.Parse(s.Trim())).ToArray();
+
+            //        if (arr01.Length != size1 || arr02.Length != size2)
+            //        {
+            //            Console.WriteLine("Inavlid input");
+            //            continue;
+            //        }
+
+            //        break;
+            //    }
+            //    catch
+            //    {
+            //        Console.WriteLine("Invalid input");
+            //    }
+            //}
+            //int[] result = new int[Math.Min(arr01.Length, arr02.Length)];
             //int resIndex = 0;
 
-            //for (int i = 0; i < Size01; i++)
+            //for (int i = 0; i < arr01.Length; i++)
             //{
-            //    for (int j = 0; j < Size02; j++)
+            //    for (int j = 0; j < arr02.Length; j++)
             //    {
             //        if (arr01[i] == arr02[j])
             //        {
@@ -554,7 +552,6 @@ namespace Session_02
             //        }
             //    }
             //}
-
             //Console.WriteLine("\nOutput:");
             //if (resIndex > 0)
             //{
@@ -570,7 +567,6 @@ namespace Session_02
             //{
             //    Console.WriteLine("[0,0]");
             //}
-
             #endregion
 
             #region Q10)
@@ -582,44 +578,29 @@ namespace Session_02
             //Output:
             //[2, 3, 7]
 
-            //int size;
-            //while (true)
-            //{
-            //    Console.Write("Enter size of the array: ");
-            //    if (int.TryParse(Console.ReadLine(), out size) && size > 0)
-            //        break;
-            //    else
-            //        Console.WriteLine("Invalid input");
-            //}
+            //Console.WriteLine("Enter array:");
+            //string input = Console.ReadLine();
 
+            //string cleaned = input.Replace("[", "").Replace("]", "");
+            //string[] parts = cleaned.Split(',');
             //ArrayList arr = new ArrayList();
-            //Console.WriteLine("\nEnter array elements:");
-            //for (int i = 0; i < size; i++)
+
+            //foreach (string part in parts)
             //{
-            //    int val;
-            //    while (true)
+            //    if (int.TryParse(part.Trim(), out int val))
+            //        arr.Add(val);
+            //    else
             //    {
-            //        Console.Write($"Element {i + 1}: ");
-            //        if (int.TryParse(Console.ReadLine(), out val))
-            //        {
-            //            arr.Add(val);
-            //            break;
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine("Invalid input");
-            //        }
+            //        Console.WriteLine("Invalid input");
+            //        return;
             //    }
             //}
 
-            //int target;
-            //while (true)
+            //Console.WriteLine("Enter target sum:");
+            //if (!int.TryParse(Console.ReadLine(), out int target))
             //{
-            //    Console.Write("\nEnter target sum: ");
-            //    if (int.TryParse(Console.ReadLine(), out target))
-            //        break;
-            //    else
-            //        Console.WriteLine("Invalid input");
+            //    Console.WriteLine("Invalid input");
+            //    return;
             //}
 
             //ArrayList result = FindSublistWithSumUpToTarget(arr, target);
@@ -631,7 +612,7 @@ namespace Session_02
             //    for (int i = 0; i < result.Count; i++)
             //    {
             //        Console.Write(result[i]);
-            //        if (i < result.Count - 1) Console.Write(",");
+            //        if (i < result.Count - 1) Console.Write(", ");
             //    }
             //    Console.WriteLine("]");
             //}
@@ -651,44 +632,31 @@ namespace Session_02
             //Output:
             //[3, 2, 1, 4, 5]
 
-            //int size;
-            //while (true)
+            //Queue<int> queue = new Queue<int>();
+            //Console.WriteLine("Enter queue :");
+            //string input = Console.ReadLine();
+            //string cleaned = input.Replace("[", "").Replace("]", "");
+            //string[] parts = cleaned.Split(',');
+            //foreach (string part in parts)
             //{
-            //    Console.Write("Enter size: ");
-            //    if (int.TryParse(Console.ReadLine(), out size) && size > 0)
-            //        break;
+            //    if (int.TryParse(part.Trim(), out int val))
+            //        queue.Enqueue(val);
+            //    else
+            //    {
+            //        Console.WriteLine("Invalid input");
+            //        return;
+            //    }
+            //}
+            //Console.WriteLine("Enter K:");
+            //string kInput = Console.ReadLine();
+            //int k;
+            //if (!int.TryParse(kInput.Replace("K=", "").Replace("k=", "").Trim(), out k)
+            //    || k <= 0 || k > queue.Count)
+            //{
             //    Console.WriteLine("Invalid input");
             //}
 
-            //Queue<int> queue = new Queue<int>();
-
-            //Console.WriteLine("\nEnter queue :");
-            //for (int i = 0; i < size; i++)
-            //{
-            //    int value;
-            //    while (true)
-            //    {
-            //        Console.Write($"Element {i + 1}: ");
-            //        if (int.TryParse(Console.ReadLine(), out value))
-            //        {
-            //            queue.Enqueue(value);
-            //            break;
-            //        }
-            //        Console.WriteLine("Invalid input");
-            //    }
-            //}
-
-            //int k;
-            //while (true)
-            //{
-            //    Console.Write("\nEnter K: ");
-            //    if (int.TryParse(Console.ReadLine(), out k) && k > 0 && k <= size)
-            //        break;
-            //    Console.WriteLine($"Invalid input");
-            //}
-
             //ReverseFirstKInQueue(queue, k);
-
             //Console.WriteLine("\nOutput:");
             //Console.Write("[");
             //int count = 0;
@@ -701,9 +669,7 @@ namespace Session_02
             //}
             //Console.WriteLine("]");
 
-
-
-            #endregion
+        #endregion
 
         }
     }
