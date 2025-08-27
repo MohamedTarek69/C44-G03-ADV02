@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections;
+using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Session_02
@@ -6,7 +7,7 @@ namespace Session_02
     internal class Program
     {
         #region Methods
-        static void ReverseQueue(Queue<int> queue)
+        public static void ReverseQueue(Queue<int> queue)
         {
             Stack<int> stack = new Stack<int>();
 
@@ -21,7 +22,7 @@ namespace Session_02
             }
         }
 
-        static bool CheckParentheses(string str)
+        public static bool CheckParentheses(string str)
         {
             Stack<char> stack = new Stack<char>();
 
@@ -50,7 +51,7 @@ namespace Session_02
             return stack.Count == 0;
         }
 
-        static int[] RemoveDuplicates(int[] arr)
+        public static int[] RemoveDuplicates(int[] arr)
         {
             List<int> result = new List<int>();
 
@@ -65,9 +66,31 @@ namespace Session_02
             return result.ToArray();
         }
 
-        #endregion
+        public static ArrayList RemoveOddNumbers(ArrayList arr)
+        {
+            if(arr.Count > 0 && arr is not null)
+            {
+                ArrayList result = new ArrayList();
+                foreach (int item in arr)
+                {
+                    if (item % 2 == 0)
+                    {
+                        result.Add(item);
+                    }
+                }
 
-        static void Main(string[] args)
+                return result;
+            }
+            else
+            {
+                return new ArrayList();
+            }
+            
+        }
+
+            #endregion
+
+            static void Main(string[] args)
         {
             #region Q1)
             //Given an array consists of numbers with size N and number of queries,
@@ -308,6 +331,26 @@ namespace Session_02
 
             #endregion
 
+            #region Q6)
+            //Given an array list , implement a function to remove all odd numbers from it.
+
+            //ArrayList arr = new ArrayList() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //Console.WriteLine("Before removing duplicates:");
+            //foreach (int item in arr)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //arr = RemoveOddNumbers(arr);
+
+            //Console.WriteLine("\nAfter removing duplicates:");
+
+            //foreach (int item in arr)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
 
         }
     }
