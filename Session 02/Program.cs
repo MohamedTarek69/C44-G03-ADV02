@@ -1,4 +1,6 @@
-﻿namespace Session_02
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Session_02
 {
     internal class Program
     {
@@ -58,6 +60,44 @@
             //}
 
             #endregion
+
+            #region Q2)
+            //Given a number N and an array of N numbers. Determine if it's palindrome or not
+            //Ex:
+            //Input:
+            //5
+            //1 3 2 3 1
+            //Output:
+            //YES
+
+            //int N;
+            //Console.WriteLine("Please enter N:");
+            //int.TryParse(Console.ReadLine(), out N);
+
+            //Console.WriteLine("\nEnter your numbers: ");
+            //string[] input = Console.ReadLine().Split();
+            //int[] arr = new int[N];
+            //for (int i = 0; i < N; i++)
+            //{
+            //    int.TryParse(input[i], out arr[i]);
+            //}
+
+            //bool isPalindrome = true;
+            //for (int i = 0; i < N / 2; i++)
+            //{
+            //    if (arr[i] != arr[N - 1 - i])
+            //    {
+            //        isPalindrome = false;
+            //        break;
+            //    }
+            //}
+            //Console.WriteLine("\nOutput:");
+            //Console.WriteLine(isPalindrome ? "Yes": "No");
+
+            #endregion
+
+
+
         }
     }
 }
