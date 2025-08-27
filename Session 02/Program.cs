@@ -1,4 +1,5 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Drawing;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Session_02
 {
@@ -18,7 +19,39 @@ namespace Session_02
             {
                 queue.Enqueue(stack.Pop());
             }
-        } 
+        }
+
+        static bool CheckParentheses(string str)
+        {
+            Stack<char> stack = new Stack<char>();
+
+            foreach (char ch in str)
+            {
+                if (ch == '(' || ch == '[' || ch == '{')
+                {
+                    stack.Push(ch);
+                }
+                else if (ch == ')' || ch == ']' || ch == '}')
+                {
+                    if (stack.Count == 0)
+                    {
+                        return false;
+                    }
+
+                    char top = stack.Pop();
+
+                    if ((ch == ')' && top != '(') || (ch == ']' && top != '[') || (ch == '}' && top != '{'))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.Count == 0;
+        }
+
+        
+
         #endregion
 
         static void Main(string[] args)
@@ -38,28 +71,67 @@ namespace Session_02
             //1                  //11
             //0
 
-            //Console.WriteLine("Enter size and number of queries: ");
-            //string[] Line = Console.ReadLine().Split();
             //int Size, NumberOfQueries;
-            //int.TryParse(Line[0], out Size);
-            //int.TryParse(Line[1], out NumberOfQueries);
-
-            //Console.WriteLine("Enter your numbers: ");
-            //string[] Input = Console.ReadLine().Split();
-            //int[] arr = new int[Size];
-            //for (int i = 0; i < Size; i++)
+            //while (true)
             //{
-            //    int.TryParse(Input[i], out arr[i]);
+            //    Console.WriteLine("Enter size an number of queries: ");
+            //    string[] line = Console.ReadLine().Split();
+
+            //    if (line.Length != 2 ||
+            //        !int.TryParse(line[0], out Size) || Size <= 0 ||
+            //        !int.TryParse(line[1], out NumberOfQueries) || NumberOfQueries <= 0)
+            //    {
+            //        Console.WriteLine("Invalid input.");
+            //        continue;
+            //    }
+            //    break;
             //}
+
+            //int[] arr = new int[Size];
+            //Console.WriteLine($"Enter yout numbers: ");
+            //do
+            //{
+            //    string[] input = Console.ReadLine().Split();
+
+            //    if (input.Length != Size)
+            //    {
+            //        Console.WriteLine("Invalid input.");
+            //        continue;
+            //    }
+
+            //    bool valid = true;
+            //    for (int i = 0; i < Size; i++)
+            //    {
+            //        if (!int.TryParse(input[i], out arr[i]))
+            //        {
+            //            Console.WriteLine("Invalid input.");
+            //            valid = false;
+            //            break;
+            //        }
+            //    }
+
+            //    if (valid) break;
+
+            //} while (true);
 
             //Console.WriteLine("Enter Queries: ");
             //int[] queries = new int[NumberOfQueries];
+
             //for (int i = 0; i < NumberOfQueries; i++)
             //{
-            //    string input = Console.ReadLine();
-            //    int x;
-            //    int.TryParse(input, out x);
-            //    queries[i] = x;
+            //    do
+            //    {
+            //        if (int.TryParse(Console.ReadLine(), out queries[i]))
+            //        {
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Inalid inpuy");
+            //            continue;
+            //        }
+            //    } while (true);
+
             //}
 
             //Console.WriteLine("Output:");
@@ -88,15 +160,36 @@ namespace Session_02
             //YES
 
             //int N;
-            //Console.WriteLine("Please enter N:");
-            //int.TryParse(Console.ReadLine(), out N);
-
-            //Console.WriteLine("\nEnter your numbers: ");
-            //string[] input = Console.ReadLine().Split();
-            //int[] arr = new int[N];
-            //for (int i = 0; i < N; i++)
+            //do
             //{
-            //    int.TryParse(input[i], out arr[i]);
+            //    Console.Write("Please enter N:");
+            //} while (!int.TryParse(Console.ReadLine(), out N) || N <= 0);
+
+            //int[] arr = new int[N];
+            //bool validInput = false;
+            //while (!validInput)
+            //{
+            //    Console.WriteLine("\nEnter your numbers:");
+            //    string[]? input = Console.ReadLine().Split();
+            //    if (input.Length != N)
+            //    {
+            //        Console.WriteLine("Invalid Input");
+            //        continue;
+            //    }
+            //    bool allValid = true;
+            //    for (int i = 0; i < N; i++)
+            //    {
+            //        if (!int.TryParse(input[i], out arr[i]))
+            //        {
+            //            Console.WriteLine("Invalid Input");
+            //            allValid = false;
+            //            break;
+            //        }
+            //    }
+            //    if (allValid)
+            //    {
+            //        validInput = true;
+            //    }
             //}
 
             //bool isPalindrome = true;
@@ -108,12 +201,13 @@ namespace Session_02
             //        break;
             //    }
             //}
+
             //Console.WriteLine("\nOutput:");
-            //Console.WriteLine(isPalindrome ? "Yes": "No");
+            //Console.WriteLine(isPalindrome ? "Yes" : "No");
 
             #endregion
 
-            #region Q3
+            #region Q3)
             //Given a Queue, implement a function to reverse the elements of a queue using a stack.
 
             //Queue<int> queue = new Queue<int>();
@@ -138,6 +232,49 @@ namespace Session_02
             //}
 
             #endregion
+
+            #region Q4)
+            //Given a Stack, implement a function to check if a string of parentheses is balanced using a stack.
+            //Ex:
+            //Input:
+            //[()] { }
+            //Output:
+            //Balanced
+
+            //string? input = null;
+
+            //do
+            //{
+            //    Console.WriteLine("Input:");
+            //    input = Console.ReadLine();
+
+            //    bool isValid = true;
+            //    foreach (char c in input)
+            //    {
+            //        if (c != '(' && c != ')' && c != '{' && c != '}' && c != '[' && c != ']')
+            //        {
+            //            isValid = false;
+            //            break;
+            //        }
+            //    }
+
+            //    if (string.IsNullOrEmpty(input) || !isValid)
+            //    {
+            //        Console.WriteLine("Invalid input");
+            //        input = null;
+            //    }
+
+            //} while (string.IsNullOrEmpty(input));
+
+            //Console.WriteLine("Output:");
+            //if (CheckParentheses(input))
+            //    Console.WriteLine("Balanced");
+            //else
+            //    Console.WriteLine("Not Balanced");
+
+
+            #endregion
+
 
         }
     }
