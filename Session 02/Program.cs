@@ -120,6 +120,31 @@ namespace Session_02
             }
         }
 
+        static ArrayList FindSublistWithSumUpToTarget(ArrayList arr, int target)
+        {
+            int start = 0, sum = 0;
+
+            for (int end = 0; end < arr.Count; end++)
+            {
+                sum += (int)arr[end];
+
+                while (sum > target && start <= end)
+                {
+                    sum -= (int)arr[start];
+                    start++;
+                }
+
+                if (sum == target)
+                {
+                    ArrayList sublist = new ArrayList();
+                    for (int i = start; i <= end; i++)
+                        sublist.Add(arr[i]);
+                    return sublist;
+                }
+            }
+            return null;
+        }
+
         #endregion
 
         static void Main(string[] args)
@@ -471,7 +496,7 @@ namespace Session_02
             //    do
             //    {
             //        Console.Write($"Element {i + 1}: ");
-            //        if (int.TryParse(Console.ReadLine(),out arr01[i]))
+            //        if (int.TryParse(Console.ReadLine(), out arr01[i]))
             //        {
             //            break;
             //        }
@@ -515,7 +540,7 @@ namespace Session_02
             //    }
             //}
 
-            //Console.WriteLine("\nIntersection Result:");
+            //Console.WriteLine("\nOutput:");
             //if (resIndex > 0)
             //{
             //    Console.Write("[");
@@ -529,6 +554,67 @@ namespace Session_02
             //else
             //{
             //    Console.WriteLine("[0,0]");
+            //}
+
+            #endregion
+
+            #region Q10)
+            //int size;
+            //while (true)
+            //{
+            //    Console.Write("Enter size of the array: ");
+            //    if (int.TryParse(Console.ReadLine(), out size) && size > 0)
+            //        break;
+            //    else
+            //        Console.WriteLine("Invalid input");
+            //}
+
+            //ArrayList arr = new ArrayList();
+            //Console.WriteLine("\nEnter array elements:");
+            //for (int i = 0; i < size; i++)
+            //{
+            //    int val;
+            //    while (true)
+            //    {
+            //        Console.Write($"Element {i + 1}: ");
+            //        if (int.TryParse(Console.ReadLine(), out val))
+            //        {
+            //            arr.Add(val);
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Invalid input");
+            //        }
+            //    }
+            //}
+
+            //int target;
+            //while (true)
+            //{
+            //    Console.Write("\nEnter target sum: ");
+            //    if (int.TryParse(Console.ReadLine(), out target))
+            //        break;
+            //    else
+            //        Console.WriteLine("Invalid input");
+            //}
+
+            //ArrayList result = FindSublistWithSumUpToTarget(arr, target);
+
+            //if (result != null)
+            //{
+            //    Console.WriteLine("\nOutput:");
+            //    Console.Write("[");
+            //    for (int i = 0; i < result.Count; i++)
+            //    {
+            //        Console.Write(result[i]);
+            //        if (i < result.Count - 1) Console.Write(",");
+            //    }
+            //    Console.WriteLine("]");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("\nNo sublist found.");
             //}
 
             #endregion
