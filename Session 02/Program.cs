@@ -120,7 +120,7 @@ namespace Session_02
             }
         }
 
-        static ArrayList FindSublistWithSumUpToTarget(ArrayList arr, int target)
+        public static ArrayList FindSublistWithSumUpToTarget(ArrayList arr, int target)
         {
             int start = 0, sum = 0;
 
@@ -143,6 +143,21 @@ namespace Session_02
                 }
             }
             return null;
+        }
+
+        public static void ReverseFirstKInQueue(Queue<int> q, int k)
+        {
+            Stack<int> st = new Stack<int>();
+
+            for (int i = 0; i < k; i++)
+                st.Push(q.Dequeue());
+
+            while (st.Count > 0)
+                q.Enqueue(st.Pop());
+
+            int size = q.Count;
+            for (int i = 0; i < size - k; i++)
+                q.Enqueue(q.Dequeue());
         }
 
         #endregion
@@ -559,6 +574,14 @@ namespace Session_02
             #endregion
 
             #region Q10)
+            //Given an ArrayList of integers and a target sum, find if there is a contiguous sub list that sums up to the target
+            //Ex:
+            //Input:
+            //[1, 2, 3, 7, 5]
+            //12
+            //Output:
+            //[2, 3, 7]
+
             //int size;
             //while (true)
             //{
@@ -616,6 +639,69 @@ namespace Session_02
             //{
             //    Console.WriteLine("\nNo sublist found.");
             //}
+
+            #endregion
+
+            #region Q11)
+            //Given a queue reverse first K elements of a queue, keeping the remaining elements in the same order
+            //Ex : 
+            //Input:
+            //[1, 2, 3, 4, 5]
+            //K = 3
+            //Output:
+            //[3, 2, 1, 4, 5]
+
+            //int size;
+            //while (true)
+            //{
+            //    Console.Write("Enter size: ");
+            //    if (int.TryParse(Console.ReadLine(), out size) && size > 0)
+            //        break;
+            //    Console.WriteLine("Invalid input");
+            //}
+
+            //Queue<int> queue = new Queue<int>();
+
+            //Console.WriteLine("\nEnter queue :");
+            //for (int i = 0; i < size; i++)
+            //{
+            //    int value;
+            //    while (true)
+            //    {
+            //        Console.Write($"Element {i + 1}: ");
+            //        if (int.TryParse(Console.ReadLine(), out value))
+            //        {
+            //            queue.Enqueue(value);
+            //            break;
+            //        }
+            //        Console.WriteLine("Invalid input");
+            //    }
+            //}
+
+            //int k;
+            //while (true)
+            //{
+            //    Console.Write("\nEnter K: ");
+            //    if (int.TryParse(Console.ReadLine(), out k) && k > 0 && k <= size)
+            //        break;
+            //    Console.WriteLine($"Invalid input");
+            //}
+
+            //ReverseFirstKInQueue(queue, k);
+
+            //Console.WriteLine("\nOutput:");
+            //Console.Write("[");
+            //int count = 0;
+            //foreach (var item in queue)
+            //{
+            //    Console.Write(item);
+            //    count++;
+            //    if (count < queue.Count)
+            //        Console.Write(" , ");
+            //}
+            //Console.WriteLine("]");
+
+
 
             #endregion
 
