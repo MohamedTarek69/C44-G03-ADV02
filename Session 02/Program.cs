@@ -4,6 +4,23 @@ namespace Session_02
 {
     internal class Program
     {
+        #region Methods
+        static void ReverseQueue(Queue<int> queue)
+        {
+            Stack<int> stack = new Stack<int>();
+
+            while (queue.Count > 0)
+            {
+                stack.Push(queue.Dequeue());
+            }
+
+            while (stack.Count > 0)
+            {
+                queue.Enqueue(stack.Pop());
+            }
+        } 
+        #endregion
+
         static void Main(string[] args)
         {
             #region Q1)
@@ -96,7 +113,31 @@ namespace Session_02
 
             #endregion
 
+            #region Q3
+            //Given a Queue, implement a function to reverse the elements of a queue using a stack.
 
+            //Queue<int> queue = new Queue<int>();
+            //queue.Enqueue(1);
+            //queue.Enqueue(2);
+            //queue.Enqueue(3);
+            //queue.Enqueue(4);
+            //queue.Enqueue(5);
+
+            //Console.WriteLine("Before Reverse: ");
+            //foreach (int item in queue)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Console.WriteLine("After Reverse: ");
+
+            //ReverseQueue(queue);
+            //foreach (int item in queue)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
 
         }
     }
