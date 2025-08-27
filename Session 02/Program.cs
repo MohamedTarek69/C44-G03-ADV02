@@ -50,7 +50,20 @@ namespace Session_02
             return stack.Count == 0;
         }
 
-        
+        static int[] RemoveDuplicates(int[] arr)
+        {
+            List<int> result = new List<int>();
+
+            foreach (int num in arr)
+            {
+                if (!result.Contains(num))
+                {
+                    result.Add(num);
+                }
+            }
+
+            return result.ToArray();
+        }
 
         #endregion
 
@@ -272,6 +285,26 @@ namespace Session_02
             //else
             //    Console.WriteLine("Not Balanced");
 
+
+            #endregion
+
+            #region Q5)
+            //Given an array, implement a function to remove duplicate elements from an array.
+
+            //int[] arr = { 1, 2, 3, 2, 4, 1, 5, 3 };
+            //int[] result = RemoveDuplicates(arr);
+
+            //Console.WriteLine("Before removing duplicates:");
+            //foreach (int item in arr)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Console.WriteLine("After removing duplicates:");
+            //foreach (int item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             #endregion
 
