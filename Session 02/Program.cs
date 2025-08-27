@@ -352,6 +352,20 @@ namespace Session_02
 
             #endregion
 
+            #region Q7)
+            Queue01 queue = new Queue01();
+
+            queue.Enqueue(1);
+            queue.Enqueue("Apple");
+            queue.Enqueue(5.28);
+
+            queue.ShowQueue();
+
+            Console.WriteLine($"\n{queue.Dequeue()}");
+            queue.ShowQueue();
+
+            #endregion
+
         }
     }
 }
