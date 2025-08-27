@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -143,9 +145,7 @@ namespace Session_02
             //    Console.WriteLine("Enter size an number of queries: ");
             //    string[] line = Console.ReadLine().Split();
 
-            //    if (line.Length != 2 ||
-            //        !int.TryParse(line[0], out Size) || Size <= 0 ||
-            //        !int.TryParse(line[1], out NumberOfQueries) || NumberOfQueries <= 0)
+            //    if (line.Length != 2 ||!int.TryParse(line[0], out Size) || Size <= 0 ||!int.TryParse(line[1], out NumberOfQueries) || NumberOfQueries <= 0)
             //    {
             //        Console.WriteLine("Invalid input.");
             //        continue;
@@ -383,6 +383,12 @@ namespace Session_02
             #endregion
 
             #region Q7)
+            //Implement a queue that can hold different data types.
+            //And insert the following data:
+            //queue.Enqueue(1)
+            //queue.Enqueue(“Apple”)
+            //queue.Enqueue(5.28)
+
             //Queue01 queue = new Queue01();
 
             //queue.Enqueue(1);
@@ -397,6 +403,13 @@ namespace Session_02
             #endregion
 
             #region Q8)
+            //Create a function that pushes a series of integers onto a stack.
+            //Then, search for a target integer in the stack. If the target is found,
+            //print a message indicating that the target was found how many elements were checked before finding the target
+            //(“Target was found successfully and the count = 5”).
+            //If the target is not found, print a message indicating that the target was not found(“Target was not found”).
+            //Note : take the target as input from the user
+
             //Stack stack = new Stack();
             //int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
@@ -419,6 +432,104 @@ namespace Session_02
             //}while(true);
             //FindTarget(stack, Target);
 
+            #endregion
+
+            #region Q9)
+            //Given two arrays, find their intersection. Each element in the result should appear as many times as it shows in both arrays.
+            //Ex : 
+            //Input :
+            //5 , 3
+            //[1,2,3,4,4] , [10,4,4]
+            //Output : 
+            //[4,4]
+            //Ex : 
+            //Input :
+            //5 , 3
+            //[1,2,3,4,4] , [10,4,4]
+            //Output : 
+            //[4,4]
+
+            //int Size01, Size02;
+            //while (true)
+            //{
+            //    Console.WriteLine("Enter size of the two array: ");
+            //    string[] line = Console.ReadLine().Split(",");
+
+            //    if (line.Length != 2 ||!int.TryParse(line[0], out Size01) || Size01 <= 0 ||!int.TryParse(line[1], out Size02) || Size02 <= 0)
+            //    {
+            //        Console.WriteLine("Invalid input.");
+            //        continue;
+            //    }
+            //    break;
+            //}
+            //int[] arr01 = new int[Size01];
+            //int[] arr02 = new int[Size02];
+
+            //Console.WriteLine("\nEnter first array:");
+            //for (int i = 0; i < Size01; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write($"Element {i + 1}: ");
+            //        if (int.TryParse(Console.ReadLine(),out arr01[i]))
+            //        {
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Invalid Input");
+            //        }
+            //    } while (true);
+            //}
+
+            //Console.WriteLine("\nEnter secound array:");
+            //for (int i = 0; i < Size02; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write($"Element {i + 1}: ");
+            //        if (int.TryParse(Console.ReadLine(), out arr02[i]))
+            //        {
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Invalid Input");
+            //        }
+            //    } while (true);
+            //}
+
+            //int[] result = new int[Math.Min(Size01, Size02)];
+            //int resIndex = 0;
+
+            //for (int i = 0; i < Size01; i++)
+            //{
+            //    for (int j = 0; j < Size02; j++)
+            //    {
+            //        if (arr01[i] == arr02[j])
+            //        {
+            //            result[resIndex++] = arr01[i];
+            //            arr02[j] = int.MinValue;
+            //            break;
+            //        }
+            //    }
+            //}
+
+            //Console.WriteLine("\nIntersection Result:");
+            //if (resIndex > 0)
+            //{
+            //    Console.Write("[");
+            //    for (int i = 0; i < resIndex; i++)
+            //    {
+            //        Console.Write(result[i]);
+            //        if (i < resIndex - 1) Console.Write(",");
+            //    }
+            //    Console.WriteLine("]");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("[0,0]");
+            //}
 
             #endregion
 
